@@ -128,7 +128,7 @@ class RestClient
                 $uri .= '?' . $query;
             }
         }
-        $connect = $this->getHttpRequest();
+        $connect = new Http\CurlRequest();
         $connect->setOption(CURLOPT_URL, $uri);
         if ($userAgent = $this->getArrayValue($connectionParams, 'user_agent')) {
             $connect->setOption(CURLOPT_USERAGENT, $userAgent);
